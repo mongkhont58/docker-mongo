@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  mongo_db_live:
+    image: "mongo:latest"
+    container_name: "${DB_LIVE_CONTAINER_NAME}"
+    ports:
+      - "${DB_LIVE_PORT}:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${DB_LIVE_NAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_LIVE_PASSWORD}"
+    volumes:
+      - ./${DB_LIVE_VOLUMES}:/data/db
+
+  mongo_db_sandbox:
+    image: "mongo:latest"
+    container_name: "${DB_SANDBOX_CONTAINER_NAME}"
+    ports:
+      - "${DB_SANDBOX_PORT}:27017"
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "${DB_SANDBOX_NAME}"
+      MONGO_INITDB_ROOT_PASSWORD: "${DB_SANDBOX_PASSWORD}"
+    volumes:
+      - ./${DB_SANDBOX_VOLUMES}:/data/db
+
+volumes:
+  mongo_db_live: {}
+  mongo_db_sandbox: {}
+  dependencies:
+  

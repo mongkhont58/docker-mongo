@@ -1,0 +1,19 @@
+# Ignore compiled binaries
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Ignore dependencies
+/node_modules
+/vendor
+
+# Ignore log files
+*.log
+
+# Ignore environment-specific files
+.env
+
+# Ignore system files
+.DS_Store
+Thumbs.db
